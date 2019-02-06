@@ -1,10 +1,11 @@
 ; ############## Configuration file for Duet WiFi  ##############
 ; ############## executed by the firmware on start-up  ##############
 ;
-; Firmware Electronics: 1.04
-; Firmware Version:     2.02RC3(RTOS) (2018-10-17b2)
-; WiFi-Server:          1.21
-; Web-Interface:        1.22.4 b1
+; Firmware Name:	RepRapFirmware for Duet 2 WiFi/Ethernet
+; Firmware Electronics:	Duet WiFi 1.0 or 1.01
+; Firmware Version:	2.02(RTOS) (2018-12-24b1)
+; WiFi Server Version:	1.22
+; Web Interface Version:	1.22.6
 ;
 ; Drive 0 as X
 ; Drive 1 as Y
@@ -39,6 +40,7 @@ M569 P4 S1                  ; Drive 4 (U) goes forwards
 
 ; ##############  Drives - Dual Z motors  ##############
 M584 X0 Y1 Z2:4 U4 E3 P3    ; Driver 0 = X, 1 = Y, 2+4 = Z, 4 = U, 3 = Extruder, 3 axis visible
+M671 X-50:340 Y10:10 S0.5   ; leadscrews at left and right of X axis
 
 ; ##############  Drives - Microstepping  ##############
 M350 X16 Y16 Z16  I1        ; Configure microstepping with interpolation for X,Y,Z...
