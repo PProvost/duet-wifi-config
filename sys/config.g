@@ -47,27 +47,27 @@ M92 X100 Y100 Z398          ; Set axis steps per mm
 M92 E445                    ; Set extruder steps per mm
 
 ; ##############  Drives - Other settings  ##############
-M566 X1000 Y1000 Z12 E120 ; Set maximum instantaneous speed changes (mm/min)
-M203 X6000 Y6000 Z600 E1200 ; Set maximum speeds (mm/min)
-M201 X250 Y250 Z150 E350; Set accelerations (mm/s^2)
-M906 X800 Y800 Z800 E800 I30 ; Set motor currents (mA) and motor idle factor in per cent
-M84 S30 ; Set idle timeout
+M566 X1000 Y1000 Z12 E120       ; Set maximum instantaneous speed changes (mm/min)
+M203 X6000 Y6000 Z600 E1200     ; Set maximum speeds (mm/min)
+M201 X250 Y250 Z150 E350        ; Set accelerations (mm/s^2)
+M906 X800 Y800 Z800 E800 I30    ; Set motor currents (mA) and motor idle factor in per cent
+M84 S30                         ; Set idle timeout
 
 ; ##############  Drives - Axis Limits  ##############
-M208 X-14 Y0 Z0 S1 ; Set axis minima
-M208 X300 Y185 Z300 S0 ; Set axis maxima
+M208 X-14 Y0 Z0 S1              ; Set axis minima
+M208 X300 Y185 Z300 S0          ; Set axis maxima
 
 ; ##############  End stops  ##############
-M574 X1 Y2 Z1 S0 ; Define active low and unused microswitches
+M574 X1 Y2 Z1 S0                ; Define active low and unused microswitches
 
 ; ##############  Z-Probe (BLTouch)  ##############
-M307 H3 A-1 C-1 D-1 ; Remap Heater 3
-M558 P5 X0 Y0 Z1 H5 F100 T2000 ; Mode 5 probe - see https://duet3d.com/wiki/Connecting_a_Z_probe#BLTouch
+M307 H3 A-1 C-1 D-1             ; Remap Heater 3
+M558 P5 X0 Y0 Z1 H5 F100 T2000  ; Mode 5 probe - see https://duet3d.com/wiki/Connecting_a_Z_probe#BLTouch
 ; G31 - Sets Z probe trigger value, offset and trigger height
 ;       higher Z parameter pushes the first layer into the bed
 ;       lower Z-parameter lifts it up
 ; Recommend changing by no more than 0.2 at the start and 0.02-0.05 for fine tuning
-G31 X37 Y0 Z0.46 P25 ; Sensor pin offset, 25 signal threshold
+G31 X37 Y0 Z0.46 P25            ; Sensor pin offset, 25 signal threshold
 
 ; ##############  Define bed mesh grid  ##############
 M557 X20:280 Y20:165 S50        ; 50mm grid with 20mm edge buffer on 300x185 bed
