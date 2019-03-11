@@ -1,4 +1,0 @@
-; Macro for resetting the heightmap
-G28
-M557 X25:275 Y25:175 S25
-G29 S0

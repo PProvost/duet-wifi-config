@@ -1,0 +1,26 @@
+G28				; home the printer
+
+G90 				; absolute positioning
+
+; Back left
+G1 Z10 F500			; move Z to 5mm
+G1 X-5 Y165 F2000		; move to first corner
+G30 S-1				; probe and report
+
+; Back right
+G1 Z10 F500			; move Z to 5mm
+G1 X250 Y165 F2000			; move to second corner
+G30 S-1				; probe and report
+
+; Front right
+G1 Z10 F500			; move Z to 5mm
+G1 X250 Y15 F2000		; move to first corner
+G30 S-1				; probe and report
+
+; Front left
+G1 Z10 F500			; move Z to 5mm
+G1 X-5 Y15 F2000			; move to second corner
+G30 S-1				; probe and report
+
+G1 Z5 F500			; Up
+G1 X0 Y165 F2000		; Back to home
