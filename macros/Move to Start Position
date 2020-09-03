@@ -1,0 +1,11 @@
+; Home first
+; G28
+
+; Absolute positioning
+G90
+
+; Move a bit away from the edge
+; G1 X5 Y5 F2000
+
+; Move to the front center
+G1 X100 Y0 F6000

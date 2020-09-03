@@ -1,0 +1,9 @@
+M140 S45			; pre-heat the bed to 45C
+
+G28				; home all
+
+M557 X0:300 Y0:200 S50:40	; set up probing grid
+
+M190 S45			; wait for the bed to get to 45C
+
+G29 S0				; probe and save to heightmap.csv

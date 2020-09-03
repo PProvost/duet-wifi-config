@@ -2,23 +2,12 @@
 ; called to home the Z axis
 
 ; Lift Z relatively to current position
-G91
-G1 Z5 F1000 S2
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Uncomment this section for micro-switch Z-stop
-; Move Z down until the switch triggers
-; G1 Z-305 S1 F1800
-; Then back up 5
-; G1 Z5
-; Fine probe
-; G1 Z-10 F300
-; Mark our location (uncomment if not inductive). Smaller is farther from the bed.
-; G92 Z-0.08
-
+G91			; relative positioning
+G1 Z5 F1000 S2		; up 5mm
 
 ; Back to absolute positioning
-G90
+G90			; absolution positioning
+G1 X0 Y140 F3000	; move in from the corner so the probe hits the bed
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Uncomment this section for Z-Probe

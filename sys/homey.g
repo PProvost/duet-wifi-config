@@ -5,13 +5,13 @@
 G91			; relative mode
 G1 Z5 F1000 S2		; up 5mm before we start
 
-; Move quickly to X axis endstop and stop there (first pass)
+; Move quickly to Y axis endstop and stop there (first pass)
 G1 S1 Y200 F1800
 
 ; Go back a few mm
 G1 Y-5 F1800 S0
 
-; Move slowly to X axis endstop once more (second pass)
+; Move slowly to Y axis endstop once more (second pass)
 G1 S1 Y10 F350
 
 ; Lower Z again

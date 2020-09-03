@@ -21,20 +21,11 @@ G1 X5 Y-5 F1800 S0
 G1 X-10 F350 S1
 G1 Y10 F350 S1
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Uncomment this section for micro-switch Z-stop
-; Move Z down until the switch triggers
-; G1 Z-305 S1 F1800
-; Then back up 5
-; G1 Z5
-; Fine probe
-; G1 Z-10 F300
-; Mark our location (uncomment if not inductive). Smaller is farther from the bed.
-; G92 Z-0.08
-
 
 ; Back to absolute positioning
 G90
+
+G1 X0 Y140 F3000	; Move the probe onto the bed
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -40,7 +40,7 @@ M569 P4 S1                  ; Drive 4 (U) goes forwards
 
 ; ##############  Drives - Dual Z motors  ##############
 M584 X0 Y1 Z2:4 U4 E3 P3    ; Driver 0 = X, 1 = Y, 2+4 = Z, 4 = U, 3 = Extruder, 3 axis visible
-M671 X-50:340 Y10:10 S1.5   ; leadscrews at left and right of X axis
+M671 X-45:340 Y10:10 S1.5   ; leadscrews at left and right of X axis
 
 ; ##############  Drives - Microstepping  ##############
 M350 X16 Y16 Z16  I1        ; Configure microstepping with interpolation for X,Y,Z...
@@ -56,11 +56,12 @@ M906 X800 Y800 Z800 E850 I30		; Set motor currents (mA) and motor idle factor in
 M84 S30					; Set idle timeout
 
 ; ##############  Drives - Axis Limits  ##############
-M208 X-10 Y0 Z0 S1              ; Set axis minima
-M208 X320 Y190 Z300 S0          ; Set axis maxima
+M208 X-8 Y-10 Z0 S1              ; Set axis minima
+M208 X325 Y205 Z350 S0          ; Set axis maxima
 
 ; ##############  End stops  ##############
-M574 X1 Y2 Z1 U0 S0                ; Define active low and unused microswitches
+M574 Y2 Z1 U0 S0                ; Define active low and unused microswitches
+M574 X1 S1
 
 ; ##############  Z-Probe (BLTouch)  ##############
 M307 H3 A-1 C-1 D-1             ; Remap Heater 3
@@ -69,17 +70,19 @@ M558 P5 X0 Y0 Z1 H5 F100 T2000  ; Mode 5 probe - see https://duet3d.com/wiki/Con
 ; G31 - Sets Z probe trigger value, offset and trigger height
 ;       higher Z parameter pushes the first layer into the bed
 ;       lower Z-parameter lifts it up
-G31 X37 Y0 Z1.05 P25            ; Sensor pin offset, 25 signal threshold
+G31 X0 Y60 Z0.15 P25            ; Sensor pin offset, 25 signal threshold
 
 ; ##############  Define bed mesh grid  ##############
-M557 X30:300 Y10:180 S25        ; 25mm grid with 20mm edge buffer on 300x185 bed
+M557 X0:300 Y0:180 S25:20
 
 ; M376 H2                       ; Taper off the compensation over 2mm
 
 ; ##############  Heaters  ##############
+M307 H1 A263.6 C114.1 D2.3 S1		; PID settings for hotend (2019-05-23)
+
 M307 H0 B0 S0.8				; Enable PWM mode (B0) for the bed heater and set PWM limit (Sx.xx)
 M305 P0 T100000 B4508 C8.66e-8		; Set thermistor + ADC parameters for heater 0 (bed)
-M143 H0 S120				; Set maximum bed heater temperature to 120C
+M143 H0 S160				; Set maximum bed heater temperature to 120C
 
 M305 P1 T100000 B4388			; Set thermistor + ADC parameters for heater 1 (hotend)
 M143 H1 S280				; Set maximum hotend heater temperature to 280C
